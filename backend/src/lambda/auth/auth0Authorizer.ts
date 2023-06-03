@@ -69,7 +69,7 @@ async function verifyToken(authHeader: string): Promise<JwtPayload> {
     throw new Error('No signingKey was found!')
   }
 
-  return verify(token, jwkToPem(signingKey), algorithms: ['RS256']) as JwtPayLoad
+  return verify(token, jwkToPem(signingKey), {algorithms: ['RS256']}) as JwtPayload
 }
 
 function getToken(authHeader: string): string {
