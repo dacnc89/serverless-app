@@ -11,6 +11,7 @@ const logger = createLogger('TodosAccess')
 
 // TODO: Implement the dataLayer logic
 export class TodosAcess {
+  static getTodosForUser: any
   constructor(
     private readonly docClient: DocumentClient = createDynamoDBClient(),
     private readonly TodosTable = process.env.TODOS_TABLE
