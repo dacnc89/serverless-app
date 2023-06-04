@@ -10,7 +10,7 @@ import { TodoDelete } from '../models/TodoDelete';
 
 const logger = createLogger('TodosAccess')
 
-export class TodosAcess {
+export class TodosAccess {
   static getTodosForUser: any
   constructor(
     private readonly docClient: DocumentClient = createDynamoDBClient(),

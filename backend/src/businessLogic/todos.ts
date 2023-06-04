@@ -4,14 +4,14 @@ import * as AWSXRay from 'aws-xray-sdk'
 import { TodoItem } from '../models/TodoItem'
 import { TodoUpdate } from '../models/TodoUpdate'
 import { TodoDelete } from '../models/TodoDelete'
-import { TodosAcess } from '../helpers/todosAcess'
+import { TodosAccess } from '../dataLayer/todosAccess'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
 import { createLogger } from '../utils/logger'
 
 const bucketName = process.env.ATTACHMENT_S3_BUCKET
 const urlExpiration = process.env.SIGNED_URL_EXPIRATION
-const todoAccess = new TodosAcess()
+const todoAccess = new TodosAccess()
 const logger = createLogger('todos.ts')
 
 const XAWS = AWSXRay.captureAWS(AWS)
