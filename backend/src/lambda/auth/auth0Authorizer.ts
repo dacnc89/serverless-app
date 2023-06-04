@@ -10,9 +10,6 @@ import { JwtPayload } from '../../auth/JwtPayload'
 const logger = createLogger('auth')
 const jwkToPem = require('jwk-to-pem')
 
-// TODO: Provide a URL that can be used to download a certificate that can be used
-// to verify JWT token signature.
-// To get this URL you need to go to an Auth0 page -> Show Advanced Settings -> Endpoints -> JSON Web Key Set
 const jwksUrl = 'https://dev-bxkjx1fd0cjop6bw.us.auth0.com/.well-known/jwks.json'
 
 export const handler = async (
@@ -21,6 +18,7 @@ export const handler = async (
   logger.info('Authorizing a user', event.authorizationToken)
   try {
     const jwtToken = await verifyToken(event.authorizationToken)
+    logger.info('jwtToken', jwtToken)
     logger.info('User was authorized', jwtToken)
 
     return {
